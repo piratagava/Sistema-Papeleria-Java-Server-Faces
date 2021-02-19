@@ -1,0 +1,65 @@
+#top {
+  position: relative;
+    background-image: url(../..//Img/haber1.jpg);
+    height: 20vh;
+    background-position: top center;
+    background-size: cover;
+}
+#top a{
+  font-family:'Oswald',sans-serif;
+  color: #ffffff;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all .6s ease;
+  width: 95%;
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;  
+}
+#top a:hover{
+  background-color: #fe4918;
+}
+#top a:last-child{
+  border: 2px solid #fe4918;
+  color: #fe4918;
+}
+#top a:last-child{
+  color: #ffffff;
+}
+
+#bottom {
+  position: relative;
+  background-color: #c2dfef;
+  padding: 6px;
+  margin: 10px 0px 0px 0px;
+} 
+#bottom:hover{
+  background-color: #ffffff; 
+}
+
+#left {
+  float: left;
+  background-color: #ece3a5;
+  padding: 5px;
+  width: 150px;
+}
+
+#top a:link, #top a:visited {
+  color: #000000;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+#sessionUsuario{
+  color: #000000;
+  font-weight:  bold;
+  position: inherit;
+  right: 45px;
+}

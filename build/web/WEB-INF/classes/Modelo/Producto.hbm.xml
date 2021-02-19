@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2019 01:49:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Producto" table="producto" catalog="papeleria" optimistic-lock="version">
+        <id name="codProducto" type="java.lang.Integer">
+            <column name="codProducto" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreProducto" type="string">
+            <column name="nombreProducto" length="40" not-null="true" />
+        </property>
+        <property name="precioVenta" type="big_decimal">
+            <column name="precioVenta" precision="10" not-null="true" />
+        </property>
+        <property name="stockMinimo" type="int">
+            <column name="stockMinimo" not-null="true" />
+        </property>
+        <property name="stockActual" type="int">
+            <column name="stockActual" not-null="true" />
+        </property>
+        <property name="codBarra" type="string">
+            <column name="codBarra" length="40" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" not-null="true" />
+        </property>
+        <set name="detallefacturas" table="detallefactura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codProducto" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Detallefactura" />
+        </set>
+    </class>
+</hibernate-mapping>

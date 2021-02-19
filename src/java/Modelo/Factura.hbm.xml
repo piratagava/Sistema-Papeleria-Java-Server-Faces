@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2019 01:49:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Factura" table="factura" catalog="papeleria" optimistic-lock="version">
+        <id name="codFactura" type="java.lang.Integer">
+            <column name="codFactura" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="vendedor" class="Modelo.Vendedor" fetch="select">
+            <column name="codVendedor" not-null="true" />
+        </many-to-one>
+        <property name="numeroFactura" type="int">
+            <column name="numeroFactura" not-null="true" />
+        </property>
+        <property name="totalVenta" type="big_decimal">
+            <column name="totalVenta" precision="10" not-null="true" />
+        </property>
+        <property name="fechaRegistro" type="timestamp">
+            <column name="fechaRegistro" length="19" not-null="true">
+                <comment>on update CURRENT_TIMESTAMP</comment>
+            </column>
+        </property>
+        <set name="detallefacturas" table="detallefactura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codFactura" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Detallefactura" />
+        </set>
+    </class>
+</hibernate-mapping>

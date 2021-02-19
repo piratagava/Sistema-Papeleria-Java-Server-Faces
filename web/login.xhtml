@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>           
+    <title>Acceder al Sistema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet name="./resources/css/login.css"/>
+  </h:head>
+  <h:body style="background-color: #c2dfef">
+    <div class="login">            
+      <h:form style="width: 500px; margin: 0 auto; text-align: center" id="formLogin">                
+        <p:growl id="mensajeGeneral" sticky="true" showDetail="true" life="3000" />
+        <p:panel header="Login Sistema de Ventas Papeleria Agustin" widgetVar="dlg">
+          <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="usuario" value="Usuario:" />
+            <p:inputText id="usuario" value="#{loginBean.vendedor.nombres}" placeholder="Usuario" 
+                         required="true" label="username" requiredMessage="Escriba Usuario" />
+
+            <h:outputLabel for="password" value="Password:" />
+            <p:password id="password" value="#{loginBean.vendedor.passwd}" placeholder="Password"
+                        required="true" label="password" requiredMessage="Escriba el Password"/>
+
+            <f:facet name="footer">
+              <p:commandButton value="Login" update="formLogin" actionListener="#{loginBean.login(event)}"
+                               oncomplete="handleLoginRequest(xhr, status, args)" />
+            </f:facet>  
+          </h:panelGrid>
+        </p:panel>    
+      </h:form>          
+    </div>            
+    <script type="text/javascript">
+      function handleLoginRequest(xhr, status, args) {
+        if (args.validationFailed || !args.loggedIn) {
+          jQuery('#formLogin').effect('shake', {times: 3}, 350);
+        } else {
+          location.href = args.ruta;
+        }
+      }
+    </script>
+  </h:body>
+</html>  

@@ -1,0 +1,25 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23-feb-2019, 18:58:51
+    Author     : Hernan
+*/
+body
+{
+    background-color: aqua;
+    font-size: 14px;
+    font-family: Verdana,"Verdana CE", Arial,"Arial CE", "Lucida Grande Ce",lucida,"Helvica CE",sans-serif;
+    color: darkmagenta;
+    margin: 10px;
+}
+
+.login
+{
+    width: 325px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+}

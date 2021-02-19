@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+  <h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h:outputStylesheet name="./css/default.css"/>
+    <h:outputStylesheet name="./css/cssLayout.css"/>
+    <title>Papeleria Agustin</title>
+  </h:head>
+
+  <h:body>
+    <div id="top">                        
+      <h:form>
+        <p:menubar>
+          <p:submenu label="Cerrar Sesion" icon="ui-icon-document">                               
+            <p:separator/>
+            <p:menuitem value="Salir" action="#{loginBean.cerrarSesion()}"/>
+          </p:submenu>
+
+          <p:submenu label="Vendedor" icon="ui-icon-pencil">                                       
+            <p:menuitem value="Ver y Editar" outcome="/Views/Vendedor/Vendedor"  icon="ui-icon-arrowreturnthick-1-e"/>
+          </p:submenu>
+
+          <p:submenu label="Producto" icon="ui-icon-pencil">                                       
+            <p:menuitem value="Ver y Editar" outcome="/Views/Producto/Producto" icon="ui-icon-arrowreturnthick-1-e"/>                   </p:submenu>
+
+          <p:submenu label="Venta" icon="ui-icon-document">                                       
+            <p:menuitem value="Realizar Venta" outcome="/Views/Venta/factura"/>
+            <p:menuitem value="Detalles de Ventas" outcome="/Views/Venta/ListarDetalle" icon="ui-icon-arrowreturnthick-1-e"/>
+            <p:menuitem value="Asistente de Ventas" outcome="/Views/Venta/ListarVentas" icon="ui-icon-arrowreturnthick-1-e"/>          </p:submenu>
+        </p:menubar>
+        <div id="sessionUsuario">
+          <span>                    
+            <h:form style="width: 400px; margin: 0 auto; text-align: center">                        
+              <p:separator/>
+              <p:outputLabel value="HOLA, "/>
+              <p:outputLabel value="#{loginBean.vendedor.nombres} #{loginBean.vendedor.apellidos}"/>        
+              <p:outputLabel value=" Bienvenido."/>
+              <p:separator/>
+
+            </h:form>
+          </span>
+        </div>                
+      </h:form>
+    </div>
+
+    <div id="content" class="center_content">
+      <ui:insert name="content">Content
+      
+      </ui:insert>
+    </div>
+
+    <div id="bottom">            
+      <h1 align="center">
+        &copy; Todos los derechos reservados 2019. H.G.V.
+      </h1>
+    </div>
+
+  </h:body>
+
+</html>
